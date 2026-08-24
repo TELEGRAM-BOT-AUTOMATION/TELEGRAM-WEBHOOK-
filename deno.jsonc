@@ -1,0 +1,29 @@
+{
+    "name": "@grammyjs/grammy",
+    "version": "2.0.0-beta.3",
+    "lock": false,
+    "imports": {
+        "@grammyjs/debug": "jsr:@grammyjs/debug@^0.1.2"
+    },
+    "exports": {
+        ".": "./src/mod.ts",
+        "./types": "./src/types.ts",
+        "./constants": "./src/convenience/constants.ts",
+        "./inline_query": "./src/convenience/inline_query.ts",
+        "./input_media": "./src/convenience/input_media.ts",
+        "./keyboard": "./src/convenience/keyboard.ts",
+        "./webhook": "./src/convenience/webhook.ts"
+    },
+    "tasks": {
+        "check": "deno check ./src/",
+        "test": "deno test --parallel --seed=123456",
+        "ok": "deno fmt --check && deno lint && deno task test && deno task check",
+        "fix": "deno fmt && deno lint --fix",
+        // TODO: bring back coverage reports
+        "contribs": "deno -ERS --allow-write=. --allow-net=api.github.com npm:all-contributors-cli"
+    },
+    "fmt": {
+        "indentWidth": 4,
+        "proseWrap": "preserve"
+    }
+}
